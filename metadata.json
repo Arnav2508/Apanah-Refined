@@ -1,0 +1,6 @@
+{
+  "name": "Apanah — Autonomous Commercial Back Office",
+  "description": "Zero-typing AI back office for Indian small retail shops and QSRs with multimodal invoice ingestion, culinary recipe BOM depletion, real-time P&L, shrinkage audit, and Tally/Vyapar exports.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,408 @@
+import type { StoreState } from './types';
+
+export function createSeedState(): StoreState {
+  const now = new Date('2026-11-23T09:15:00+05:30').toISOString();
+
+  return {
+    meta: {
+      shopName: 'Sahyadri Nashta & Kirana Center',
+      location: 'Kothrud Stand, Pune 411038',
+      gstin: '27AABCS1429B1Z5',
+      upiId: 'sahyadrinashta@okaxis',
+    },
+    inventory: [
+      {
+        id: 'ing_urad_dal',
+        name: 'Urad Dal',
+        tier: 'raw',
+        unit: 'kg',
+        currentStock: 12.5,
+        minThreshold: 5.0,
+        unitCost: 112.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'ing_oil',
+        name: 'Sunflower Oil',
+        tier: 'raw',
+        unit: 'litre',
+        currentStock: 8.4,
+        minThreshold: 4.0,
+        unitCost: 130.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'ing_milk',
+        name: 'Full Cream Milk',
+        tier: 'raw',
+        unit: 'litre',
+        currentStock: 6.4,
+        minThreshold: 6.0,
+        unitCost: 60.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'ing_tea',
+        name: 'Assam Tea Leaves',
+        tier: 'raw',
+        unit: 'kg',
+        currentStock: 2.8,
+        minThreshold: 1.0,
+        unitCost: 420.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'ing_sugar',
+        name: 'Sugar',
+        tier: 'raw',
+        unit: 'kg',
+        currentStock: 16.0,
+        minThreshold: 5.0,
+        unitCost: 42.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'ing_poha',
+        name: 'Thick Poha Flakes',
+        tier: 'raw',
+        unit: 'kg',
+        currentStock: 9.2,
+        minThreshold: 3.0,
+        unitCost: 54.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'ing_besan',
+        name: 'Chana Besan Flour',
+        tier: 'raw',
+        unit: 'kg',
+        currentStock: 7.5,
+        minThreshold: 3.0,
+        unitCost: 88.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'ing_rice',
+        name: 'Basmati Rice',
+        tier: 'raw',
+        unit: 'kg',
+        currentStock: 15.0,
+        minThreshold: 5.0,
+        unitCost: 155.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'ing_paneer',
+        name: 'Paneer Block',
+        tier: 'raw',
+        unit: 'kg',
+        currentStock: 1.4,
+        minThreshold: 1.5,
+        unitCost: 330.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'ing_butter',
+        name: 'Butter',
+        tier: 'raw',
+        unit: 'kg',
+        currentStock: 1.4,
+        minThreshold: 1.0,
+        unitCost: 470.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'sku_parle_g',
+        name: 'Parle-G Gold Pack',
+        tier: 'retail',
+        unit: 'pack',
+        currentStock: 42,
+        minThreshold: 12,
+        unitCost: 8.2,
+        lastUpdated: now,
+      },
+      {
+        id: 'sku_water',
+        name: 'Bisleri 1L Bottle',
+        tier: 'retail',
+        unit: 'pcs',
+        currentStock: 36,
+        minThreshold: 12,
+        unitCost: 13.5,
+        lastUpdated: now,
+      },
+      {
+        id: 'sku_thumsup',
+        name: 'Thums Up 250ml Can',
+        tier: 'retail',
+        unit: 'pcs',
+        currentStock: 24,
+        minThreshold: 10,
+        unitCost: 29.0,
+        lastUpdated: now,
+      },
+      {
+        id: 'sku_chikki',
+        name: 'Lonavala Peanut Chikki',
+        tier: 'retail',
+        unit: 'pack',
+        currentStock: 18,
+        minThreshold: 8,
+        unitCost: 14.0,
+        lastUpdated: now,
+      },
+    ],
+    menu: [
+      {
+        id: 'dish_medu_vada',
+        name: 'Medu Vada (Plate)',
+        category: 'QSR Dish',
+        sellingPrice: 45,
+        bom: [
+          { inventoryId: 'ing_urad_dal', quantity: 0.05 }, // 50g
+          { inventoryId: 'ing_oil', quantity: 0.015 }, // 15ml
+        ],
+      },
+      {
+        id: 'dish_cutting_chai',
+        name: 'Cutting Chai',
+        category: 'Beverage',
+        sellingPrice: 15,
+        bom: [
+          { inventoryId: 'ing_milk', quantity: 0.08 }, // 80ml
+          { inventoryId: 'ing_tea', quantity: 0.007 }, // 7g
+          { inventoryId: 'ing_sugar', quantity: 0.012 }, // 12g
+        ],
+      },
+      {
+        id: 'dish_kanda_poha',
+        name: 'Kanda Poha',
+        category: 'QSR Dish',
+        sellingPrice: 30,
+        bom: [
+          { inventoryId: 'ing_poha', quantity: 0.1 }, // 100g
+          { inventoryId: 'ing_oil', quantity: 0.01 }, // 10ml
+          { inventoryId: 'ing_sugar', quantity: 0.005 }, // 5g
+        ],
+      },
+      {
+        id: 'dish_vada_pav',
+        name: 'Batata Vada Pav',
+        category: 'QSR Dish',
+        sellingPrice: 25,
+        bom: [
+          { inventoryId: 'ing_besan', quantity: 0.035 }, // 35g
+          { inventoryId: 'ing_oil', quantity: 0.018 }, // 18ml
+        ],
+      },
+      {
+        id: 'dish_paneer_bhurji',
+        name: 'Paneer Bhurji Pav',
+        category: 'QSR Dish',
+        sellingPrice: 85,
+        bom: [
+          { inventoryId: 'ing_paneer', quantity: 0.1 }, // 100g
+          { inventoryId: 'ing_butter', quantity: 0.015 }, // 15g
+          { inventoryId: 'ing_oil', quantity: 0.01 }, // 10ml
+        ],
+      },
+      {
+        id: 'dish_dal_khichdi',
+        name: 'Dal Khichdi Bowl',
+        category: 'QSR Dish',
+        sellingPrice: 95,
+        bom: [
+          { inventoryId: 'ing_rice', quantity: 0.12 }, // 120g
+          { inventoryId: 'ing_urad_dal', quantity: 0.04 }, // 40g
+          { inventoryId: 'ing_butter', quantity: 0.01 }, // 10g
+        ],
+      },
+      {
+        id: 'pos_parle_g',
+        name: 'Parle-G Gold Pack',
+        category: 'Retail SKU',
+        sellingPrice: 10,
+        bom: [{ inventoryId: 'sku_parle_g', quantity: 1 }],
+      },
+      {
+        id: 'pos_water',
+        name: 'Bisleri 1L Bottle',
+        category: 'Retail SKU',
+        sellingPrice: 20,
+        bom: [{ inventoryId: 'sku_water', quantity: 1 }],
+      },
+      {
+        id: 'pos_thumsup',
+        name: 'Thums Up 250ml',
+        category: 'Retail SKU',
+        sellingPrice: 40,
+        bom: [{ inventoryId: 'sku_thumsup', quantity: 1 }],
+      },
+      {
+        id: 'pos_chikki',
+        name: 'Peanut Chikki Pack',
+        category: 'Retail SKU',
+        sellingPrice: 20,
+        bom: [{ inventoryId: 'sku_chikki', quantity: 1 }],
+      },
+    ],
+    orders: [
+      {
+        id: 'ord_seed_101',
+        orderNumber: 'APN-1041',
+        timestamp: '2026-11-23T08:12:00+05:30',
+        paymentMethod: 'UPI',
+        items: [
+          {
+            dishId: 'dish_medu_vada',
+            dishName: 'Medu Vada (Plate)',
+            quantity: 2,
+            unitPrice: 45,
+            unitCogs: 7.55,
+            lineTotal: 90,
+            lineCogs: 15.1,
+          },
+          {
+            dishId: 'dish_cutting_chai',
+            dishName: 'Cutting Chai',
+            quantity: 2,
+            unitPrice: 15,
+            unitCogs: 8.24,
+            lineTotal: 30,
+            lineCogs: 16.49,
+          },
+        ],
+        grossTotal: 120,
+        totalCogs: 31.59,
+        netProfit: 88.41,
+        grossMarginPct: 73.68,
+        depletions: [
+          { inventoryId: 'ing_urad_dal', itemName: 'Urad Dal', quantityUsed: 0.1, unit: 'kg', costValue: 11.2 },
+          { inventoryId: 'ing_oil', itemName: 'Sunflower Oil', quantityUsed: 0.03, unit: 'litre', costValue: 3.9 },
+          { inventoryId: 'ing_milk', itemName: 'Full Cream Milk', quantityUsed: 0.16, unit: 'litre', costValue: 9.6 },
+          { inventoryId: 'ing_tea', itemName: 'Assam Tea Leaves', quantityUsed: 0.014, unit: 'kg', costValue: 5.88 },
+          { inventoryId: 'ing_sugar', itemName: 'Sugar', quantityUsed: 0.024, unit: 'kg', costValue: 1.01 },
+        ],
+      },
+      {
+        id: 'ord_seed_102',
+        orderNumber: 'APN-1042',
+        timestamp: '2026-11-23T08:38:00+05:30',
+        paymentMethod: 'CASH',
+        items: [
+          {
+            dishId: 'dish_kanda_poha',
+            dishName: 'Kanda Poha',
+            quantity: 3,
+            unitPrice: 30,
+            unitCogs: 6.91,
+            lineTotal: 90,
+            lineCogs: 20.73,
+          },
+          {
+            dishId: 'pos_water',
+            dishName: 'Bisleri 1L Bottle',
+            quantity: 1,
+            unitPrice: 20,
+            unitCogs: 13.5,
+            lineTotal: 20,
+            lineCogs: 13.5,
+          },
+        ],
+        grossTotal: 110,
+        totalCogs: 34.23,
+        netProfit: 75.77,
+        grossMarginPct: 68.88,
+        depletions: [
+          { inventoryId: 'ing_poha', itemName: 'Thick Poha Flakes', quantityUsed: 0.3, unit: 'kg', costValue: 16.2 },
+          { inventoryId: 'ing_oil', itemName: 'Sunflower Oil', quantityUsed: 0.03, unit: 'litre', costValue: 3.9 },
+          { inventoryId: 'ing_sugar', itemName: 'Sugar', quantityUsed: 0.015, unit: 'kg', costValue: 0.63 },
+          { inventoryId: 'sku_water', itemName: 'Bisleri 1L Bottle', quantityUsed: 1, unit: 'pcs', costValue: 13.5 },
+        ],
+      },
+      {
+        id: 'ord_seed_103',
+        orderNumber: 'APN-1043',
+        timestamp: '2026-11-23T09:04:00+05:30',
+        paymentMethod: 'UPI',
+        items: [
+          {
+            dishId: 'dish_paneer_bhurji',
+            dishName: 'Paneer Bhurji Pav',
+            quantity: 1,
+            unitPrice: 85,
+            unitCogs: 41.35,
+            lineTotal: 85,
+            lineCogs: 41.35,
+          },
+          {
+            dishId: 'pos_thumsup',
+            dishName: 'Thums Up 250ml',
+            quantity: 1,
+            unitPrice: 40,
+            unitCogs: 29.0,
+            lineTotal: 40,
+            lineCogs: 29.0,
+          },
+        ],
+        grossTotal: 125,
+        totalCogs: 70.35,
+        netProfit: 54.65,
+        grossMarginPct: 43.72,
+        depletions: [
+          { inventoryId: 'ing_paneer', itemName: 'Paneer Block', quantityUsed: 0.1, unit: 'kg', costValue: 33.0 },
+          { inventoryId: 'ing_butter', itemName: 'Butter', quantityUsed: 0.015, unit: 'kg', costValue: 7.05 },
+          { inventoryId: 'ing_oil', itemName: 'Sunflower Oil', quantityUsed: 0.01, unit: 'litre', costValue: 1.3 },
+          { inventoryId: 'sku_thumsup', itemName: 'Thums Up 250ml Can', quantityUsed: 1, unit: 'pcs', costValue: 29.0 },
+        ],
+      },
+    ],
+    invoices: [
+      {
+        id: 'inv_seed_01',
+        vendorName: 'Gultekdi Agro Traders',
+        invoiceNumber: 'GAT/2026/0892',
+        invoiceDate: '2026-11-21',
+        confirmedAt: '2026-11-21T11:20:00+05:30',
+        taxAmount: 195.0,
+        totalAmount: 4095.0,
+        itemsCount: 2,
+        lines: [
+          {
+            inventoryId: 'ing_urad_dal',
+            itemName: 'Urad Dal',
+            quantity: 20,
+            unit: 'kg',
+            incomingUnitCost: 112.0,
+            previousUnitCost: 112.0,
+            blendedUnitCost: 112.0,
+          },
+          {
+            inventoryId: 'ing_oil',
+            itemName: 'Sunflower Oil',
+            quantity: 15,
+            unit: 'litre',
+            incomingUnitCost: 130.0,
+            previousUnitCost: 130.0,
+            blendedUnitCost: 130.0,
+          },
+        ],
+      },
+    ],
+    audits: [
+      {
+        id: 'aud_seed_01',
+        timestamp: '2026-11-20T21:30:00+05:30',
+        inventoryId: 'ing_oil',
+        itemName: 'Sunflower Oil',
+        unit: 'litre',
+        theoreticalStock: 9.1,
+        physicalStock: 8.7,
+        variance: -0.4,
+        unitCostAtAudit: 130.0,
+        monetaryImpactInr: -52.0,
+        reason: 'Deep-fry evaporation & pan residue',
+      },
+    ],
+  };
+}

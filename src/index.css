@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  --bg-paper: #F7F5F0;
+  --bg-surface: #FFFFFF;
+  --bg-wash: #EFECE4;
+  --ink-primary: #141923;
+  --ink-secondary: #525B6C;
+  --border-ledger: #DCD6CA;
+  --accent-terracotta: #C8511B;
+  --accent-terracotta-hover: #AD4314;
+  --radius: 2px;
+}
+
+@layer base {
+  html, body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-paper);
+    color: var(--ink-primary);
+  }
+}
+
+.font-ledger {
+  font-family: 'Newsreader', Georgia, serif;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.font-sans-tabular {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+.font-mono-tabular {
+  font-family: 'IBM Plex Mono', monospace;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
